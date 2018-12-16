@@ -28,17 +28,13 @@
 
         _assignEvents(){
             this.$openMediaBtn.on('click', this._clickMediaBtnHandler.bind(this));
-            if (this.mediaFrame) {
-                this.mediaFrame.on('select', this._mediaFrameOnSelectHandler.bind(this));
-            }
+            this.mediaFrame ? this.mediaFrame.on('select', this._mediaFrameOnSelectHandler.bind(this)) : null;
             this.$clearMediaBtn.on('click', this._clickClearMediaBtnHandler.bind(this));
             this.$changeStatusBtn.on('click', this._changeStatusHandler.bind(this));
         },
 
         _createMediaFrame(){
-            if(!wp.media) {
-                return;
-            }
+            if(!wp.media) return;
             this.mediaFrame = wp.media({
                 title: 'Wybierz obrazek',
                 button: {
@@ -50,9 +46,7 @@
 
         _clickMediaBtnHandler(e){
             e.preventDefault();
-            if(this.mediaFrame) {
-                this.mediaFrame.open();
-            }
+            this.mediaFrame ? this.mediaFrame.open() : null;
         },
 
         _mediaFrameOnSelectHandler(){
@@ -90,9 +84,7 @@
 
         _changeStatusHandlerSuccess(response, $button){
             response = JSON.parse(response);
-            if (response.error) {
-                return;
-            }
+            if (response.error)  return;
             if (response.prev_state === 0) {
                 $button.addClass('button-primary');
                 $button.removeClass('button-secondary');
@@ -107,7 +99,6 @@
         },
 
         _changeStatusHandlerError(error, $button){
-            console.log(error);
             $button.text('Wystąpił błąd');
             $button.removeClass('button-primary');
             $button.removeClass('button-secondary');
@@ -131,7 +122,6 @@
 
         _sortableUpdateHandlerSuccess(response){
             response = JSON.parse(response);
-            console.log(response);
             this._showMsgAjaxWrapper(response.message);
             this._hideTableLoader();
         },
@@ -165,7 +155,6 @@
 
 
     };
-
 
     PC_THEME_SLIDER.init();
 
