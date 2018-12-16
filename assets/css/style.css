@@ -1,0 +1,52 @@
+#pc-theme-slider-table th.check-column {
+    vertical-align: middle;
+    padding: 0 1rem;
+}
+
+#pc-theme-slider-table td.check-column {
+    vertical-align: middle;
+    padding: 0 1rem;
+}
+
+#pc-theme-slider-form-table input,
+#pc-theme-slider-form-table textarea,
+#pc-theme-slider-form-table select {
+    width: 25em;
+}
+
+.pc-theme-slider-sortable-highlight {
+    height: 10px;
+    background-color: yellow;
+}
+
+.pc-theme-slider-sortable-item {
+    width: 100%;
+}
+
+.pc-theme-slider-table {
+    position: relative;
+}
+
+.pc-theme-slider-table-loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    z-index: 9999;
+    background-color: rgba(255,255,255, .9);
+}
+
+.pc-theme-slider-table-loader td {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.pc-theme-slider-table-loader td p {
+    text-align: center;
+    font-size: 2em;
+    font-weight: 700;
+}
